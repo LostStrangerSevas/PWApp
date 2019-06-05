@@ -1,0 +1,77 @@
+<div class="row mt-4">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12">        
+        <h2>Регистрация пользователя</h2>        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <img src="/assets/images/adduser.png" class="mx-auto d-block">
+    <form [formGroup]="userService.formModel" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-group required">
+        <label for="login">Логин</label>
+        <input class="form-control underlined" formControlName="Login"
+              type="text" id="Login" placeholder="Введите имя">
+        <label class="text-danger" *ngIf="userService.formModel.get('Login').touched && userService.formModel.get('Login').errors?.required">Логин обязателен</label>        
+      </div>
+      <div class="form-group required">
+        <label>Электронная почта</label>
+        <input class="form-control underlined" formControlName="Email"
+              id="Email" placeholder="Введите email">
+        <label class="text-danger" *ngIf="userService.formModel.get('Email').touched && userService.formModel.get('Email').errors?.required">Email обязателен</label>    
+        <label class="text-danger" *ngIf="userService.formModel.get('Email').touched && userService.formModel.get('Email').errors?.email">Некорректный email</label>    
+      </div>
+      <div formGroupName="Passwords">
+        <div class="form-group required">
+          <label for="Password">Пароль</label>
+          <input class="form-control underlined" formControlName="Password"
+                type="password" id="Password" placeholder="Введите пароль">
+          <label class="text-danger" *ngIf="userService.formModel.get('Passwords.Password').touched && userService.formModel.get('Passwords.Password').errors?.required">Пароль обязателен</label>    
+          <label class="text-danger" *ngIf="userService.formModel.get('Passwords.Password').touched && userService.formModel.get('Passwords.Password').errors?.minlength">Минимум 6 знаков в пароле</label>
+        </div>
+        <div class="form-group required">
+          <label for="PasswordConfirm">Подтверждение пароля</label>
+          <input class="form-control underlined" formControlName="PasswordConfirm"
+                type="password" id="PasswordConfirm" placeholder="Подтвердите пароль">
+          <label class="text-danger" *ngIf="userService.formModel.get('Passwords.PasswordConfirm').touched && userService.formModel.get('Passwords.PasswordConfirm').errors?.required">Подтверждение пароля обязательно</label> 
+          <label class="text-danger" *ngIf="userService.formModel.get('Passwords.PasswordConfirm').touched && userService.formModel.get('Passwords.PasswordConfirm').errors?.minlength">Минимум 6 знаков в подтверждении пароля</label>
+          <label class="text-danger" *ngIf="userService.formModel.get('Passwords.PasswordConfirm').touched && userService.formModel.get('Passwords.PasswordConfirm').errors?.passwordMismatch">Пароли не совпадают</label> 
+        </div>
+      </div>
+      <div class="row" style='margin-left: 1px;'>
+        <div class="form-group required">
+          <label>Фамилия</label>
+          <input class="form-control underlined" formControlName="LastName"
+                id="LastName" placeholder="Введите фамилию">
+          <label class="text-danger" *ngIf="userService.formModel.get('LastName').touched && userService.formModel.get('LastName').errors?.required">Фамилия обязательна</label> 
+        </div>
+        <div class="form-group required">
+          <label>Имя</label>
+          <input class="form-control underlined" formControlName="FirstName"
+                id="FirstName" placeholder="Введите имя">
+          <label class="text-danger" *ngIf="userService.formModel.get('FirstName').touched && userService.formModel.get('FirstName').errors?.required">Имя обязательно</label> 
+        </div>
+        <div class="form-group required">
+          <label>Отчество</label>
+          <input class="form-control underlined" formControlName="MiddleName"
+                id="MiddleName" placeholder="Введите отчество">
+          <label class="text-danger" *ngIf="userService.formModel.get('MiddleName').touched && userService.formModel.get('MiddleName').errors?.required">Отчество обязательно</label> 
+        </div>
+      </div>
+      <div class="form-row" style="display: -webkit-inline-box;">
+        <div class="form-group col-md-8">
+          <button
+            type="submit"
+            class="btn btn-lg btn-block"
+            [disabled]="userService.formModel.invalid">
+            Зарегистрироваться
+          </button>
+        </div>
+        <div class="form-group col-md-8 offset-md-3">
+          <button class="btn btn-lg btn-danger btn-block" (click)="onCancel()">Отмена</button>
+        </div>
+      </div> 
+    </form>
+  </div>
+</div>

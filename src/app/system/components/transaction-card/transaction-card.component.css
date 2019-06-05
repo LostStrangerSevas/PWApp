@@ -1,0 +1,21 @@
+#transactionCard {
+    background: antiquewhite;
+    width: 270px;
+    margin: 0 5px 15px 0;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  #transactionBody {
+    box-sizing: content-box;
+  }
+  
+  .custom-select {
+    width: auto;
+  }
+  
+  .flex-grow {
+    flex-grow: 1;
+  }
+  

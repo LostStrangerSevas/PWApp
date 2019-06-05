@@ -1,0 +1,18 @@
+<div class="title-block balanceTitle">
+    <h3 class="header-block">
+        На сегодня {{ date | date:'dd.MM.yyyy' }}  Ваш баланс составляет {{ balanceCurrent.value }} PW.
+      </h3>
+</div>
+
+<section class="section text-center" *ngIf="!isLoaded">
+  <app-loader></app-loader>
+</section>
+
+<section class="section" *ngIf="isLoaded">
+  <h3 class="header-block">
+      Список транзакций <span class="sparkline bar" *ngIf="isEmpty">пуст</span>
+  </h3>
+  <app-transactions-list [transactions]="filteredTransactions" (repeat) = "repeatingTransaction($event)"></app-transactions-list>
+  <button class="btn btn-primary my-2 my-sm-0" (click)="createTransaction()">Новый перевод</button>
+  <app-transaction-new [users]="users" [balance]="balanceCurrent.value" [transaction]="newTransaction" *ngIf="isCreating" (cancelAdd) = "cancelingAdd($event)" (creatingDone) = "isCreatingDone($event)"></app-transaction-new>
+</section>

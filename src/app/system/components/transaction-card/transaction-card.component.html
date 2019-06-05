@@ -1,0 +1,24 @@
+<div class="row align-items-center">
+    <div class="col-md-1">
+        {{idx + 1}}
+    </div>
+    |
+    <div class="col-md-2">
+        {{transaction.executionDate | date:'dd.MM.yyyy HH:mm'}}
+    </div>
+    |
+    <div class="col-md-1">
+        {{transaction.value}}
+    </div>
+    |
+    <div class="col-md-3">
+        {{transaction.sender}}
+    </div>
+    |
+    <div class="col-md-3">
+        {{transaction.recipient}}
+    </div>
+    <div class="col-md-1" *ngIf="transaction.sender === fullName">
+        <button class="btn btn-primary my-2 my-sm-0" (click)="repeatTransaction()">Повторить</button>
+    </div>
+</div>

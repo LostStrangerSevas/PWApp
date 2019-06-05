@@ -1,0 +1,24 @@
+<div class="row col-md-8 mb-1" style="margin-left: 1px;">
+    <div class="col-md-1">
+        № п/п
+    </div>
+    |
+    <div class="col-md-2">
+        Дата и время
+    </div>
+    |
+    <div class="col-md-1">
+        Количество PW
+    </div>
+    |
+    <div class="col-md-3">
+       Отправитель
+    </div>
+    |
+    <div class="col-md-3">
+       Получатель
+    </div>
+</div>
+<div *ngFor="let t of transactions; let idx = index" class="col-md-8 mb-1">        
+  <app-transaction-card class="card " [transaction]="t" [idx] = idx (repeat) = "repeatingTransaction($event)"></app-transaction-card>
+</div>

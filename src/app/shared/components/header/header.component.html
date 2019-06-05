@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">    
+  <a class="navbar-brand" href="#">PWApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>      
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthorized">
+        <a class="nav-link" href="/system/balance">Система PW</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Какое-то меню
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Меню 1</a>
+          <a class="dropdown-item" href="#">Меню 2</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Меню 3</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/about">О программе (отключено)</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+      </li>        
+    </ul>
+    <div class="row" *ngIf="!isAuthorized">
+        <button class="btn btn-danger my-2 my-sm-0" (click)="onLogin()">Войти</button>        
+    </div>
+    <div class="row" *ngIf="isAuthorized">
+      <span style="color: grey">
+          Здравствуйте, {{fullName}}
+      </span>
+      <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Выйти</button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,8 @@
+.card {
+    background-color: transparent;
+}
+
+div.form-group label:not(.text-danger) {
+    color: black;
+    font-weight: 700;
+}
