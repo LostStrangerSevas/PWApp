@@ -20,7 +20,6 @@
           <label class="text-danger" *ngIf="formModel.get('value').invalid && formModel.get('value').touched">Количество PW должно быть указано</label>     
           <label class="text-danger" *ngIf="formModel.get('value').errors?.min">>Количество PW должно быть больше 0</label>
           <label class="text-danger" *ngIf="formModel.get('value').errors?.max">Количество PW превышает Ваш текущий баланс</label>
-        <!--  <label class="text-danger" *ngIf="formModel.get('value').errors?.isErrorMax">Количество PW превышает Ваш текущий баланс</label> -->
         </div>
         <div class="form-row" style="display: -webkit-inline-box;">
           <div class="form-group col-md-8">
@@ -33,39 +32,6 @@
       </form>
     </div>
   </div> 
-  
-  
-  
-  
-  
-  <!-- <div class="card">      
-    <div class="card-block">
-      <form #thisForm="ngForm" (ngSubmit)="onSubmit(thisForm)">
-        <div class="col-xs-4 col-md-3">
-          <div class="form-group required">
-            <label class="control-label" for="user">Выберите получателя</label>
-            <select class="form-control" id="user" required [ngModel] name="user">
-              <option *ngFor="let u of users" [value]="u.id">
-                {{u.fullname + ' aka ' + u.login}}
-              </option>
-            </select>
-            <label class="text-danger" *ngIf="form.value.get('user').touched && form.value.get('user').errors?.required">Получатель обязателен</label>
-          </div>
-          <div class="form-group" [ngClass]="{'has-error': value.invalid && value.touched}">
-            <label class="control-label" for="pw-value">Введите количество PW</label>
-            <input type="number" id="pw-value" class="form-control" [ngModel]="1" name="value" #value="ngModel" required min="1">            
-            <span *ngIf="form.value.get('value').invalid && form.value.get('value').touched" class="form-help-text">Количество PW должно быть указано</span>
-            <span *ngIf="form.value.get('value') <= 0" class="form-help-text">Количество PW должно быть больше 0</span>
-            <span *ngIf="form.value.get('value') > balance.value" class="form-help-text">Количество PW превышает Ваш текущий баланс</span>            
-          </div>            
-        </div>          
-        <div class="row">
-          <button type="submit" class="btn btn-primary" [disabled]="thisForm.invalid">Перевести</button>
-          <button type="button" class="btn btn-warning" (click)="onCancel()">Отмена</button>
-        </div>
-      </form>
-    </div>
-  </div>   -->
 </section>
   
   
